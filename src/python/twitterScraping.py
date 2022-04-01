@@ -9,6 +9,9 @@ c.Lang = "en"
 # taking input of stock
 stock = input("Enter the name of the stock you want to search tweets for: ")
 
+if stock == "":
+    stock = "stock"
+
 # removing spaces from stock
 stock = stock.replace(" ", "")
 
