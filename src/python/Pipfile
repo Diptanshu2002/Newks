@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 twint = { git = "https://github.com/twintproject/twint.git" }
 pandas = "*"
+google-search-results = "*"
+requests = "*"
 
 [dev-packages]
 
