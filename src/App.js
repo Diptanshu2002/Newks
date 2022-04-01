@@ -1,10 +1,7 @@
-
 import {
   BrowserRouter,
   Route,
   Switch,
-  Link,
-  NavLink,
   Redirect,
 } from "react-router-dom";
 
@@ -19,7 +16,6 @@ import Signup from "./pages/signup/Signup"
 import Feed from "./pages/feed/Feed";
 
 //importing components
-import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 
 function App() {
@@ -29,7 +25,6 @@ function App() {
     <div className="App">
       {authIsReady && (
       <BrowserRouter>
-      <Navbar/>
         <Switch>
 
           <Route  exact path='/'>

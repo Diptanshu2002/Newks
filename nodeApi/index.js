@@ -32,7 +32,7 @@ app.get('/api/search',(req, res)=>{
    python.on('close', (code) => {
       console.log(`child process close all stdio with code ${code}`);
       // send data to browser
-      console.log(data2)
+      res.json(data2)
  });
     // console.log(query)
     // res.send(query)
