@@ -1,24 +1,36 @@
-import requests, lxml
-from bs4 import BeautifulSoup
+from GoogleNews import GoogleNews
+from newspaper import Article
+from newspaper import Config
+import pandas as pd
+import nltk
 
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.19582"
-}
+# config will allow us to access the specified url for which we are #not authorized. Sometimes we may get 403 client error while parsing #the link to download the article.
+nltk.download("punkt")
 
-params = {
-    "q": "gta san andreas",
-    "hl": "en",
-    "tbm": "nws",
-}
-
-response = requests.get("https://www.google.com/search", headers=headers, params=params)
-soup = BeautifulSoup(response.text, 'lxml')
-
-for result in soup.select('.dbsr'):
-    title = result.select_one('.nDgy9d').text
-    link = result.a['href']
-    source = result.select_one('.WF4CUc').text
-    snippet = result.select_one('.Y3v8qd').text
-    date_published = result.select_one('.WG9SHc span').text
-    print(f'{title}\n{link}\n{snippet}\n{date_published}\n{source}\n')
-
+user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+config = Config()
+config.browser_user_agent = user_agent
+googlenews = GoogleNews(start="05/01/2020", end="05/31/2020")
+googlenews.search("Coronavirus")
+result = googlenews.result()
+df = pd.DataFrame(result)
+print(df.head())
+for i in range(2, 20):
+    googlenews.getpage(i)
+    result = googlenews.result()
+    df = pd.DataFrame(result)
+list = []
+for ind in df.index:
+    dict = {}
+    article = Article(df["link"][ind], config=config)
+    article.download()
+    article.parse()
+    article.nlp()
+    dict["Date"] = df["date"][ind]
+    dict["Media"] = df["media"][ind]
+    dict["Title"] = article.title
+    dict["Article"] = article.text
+    dict["Summary"] = article.summary
+    list.append(dict)
+news_df = pd.DataFrame(list)
+news_df.to_excel("articles.xlsx")

@@ -8,6 +8,8 @@ twint = { git = "https://github.com/twintproject/twint.git" }
 pandas = "*"
 google-search-results = "*"
 requests = "*"
+googlenews = "*"
+newspaper3k = "*"
 
 [dev-packages]
 
