@@ -5,6 +5,8 @@ import time
 c = twint.Config()
 c.Verified = True
 c.Lang = "en"
+c.Store_json = True
+c.Output = "twitterData.json"
 
 # taking input of stock
 stock = input("Enter the name of the stock you want to search tweets for: ")
