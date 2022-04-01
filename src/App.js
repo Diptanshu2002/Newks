@@ -16,6 +16,7 @@ import Home from "./pages/home/Home";
 import About from "./pages/about/About"
 import Login from "./pages/login/Login"
 import Signup from "./pages/signup/Signup"
+import Feed from "./pages/feed/Feed";
 
 //importing components
 import Navbar from "./components/navbar/Navbar";
@@ -38,6 +39,11 @@ function App() {
 
           <Route  path='/about'>
             {user && <About/>}
+            {!user && <Redirect to='/login' />}
+          </Route>
+
+          <Route  path='/feed'>
+            {user && <Feed/>}
             {!user && <Redirect to='/login' />}
           </Route>
 

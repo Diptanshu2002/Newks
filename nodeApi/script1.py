@@ -1,4 +1,4 @@
 import sys
-print('hello from python')
+print('hello from python\n')
 variable = sys.argv[1]
-print("First name: " , type(variable))
+print(f"First name: {variable}\n")
