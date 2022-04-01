@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState} from 'react';
 
 
 import { collection, addDoc } from 'firebase/firestore'
@@ -14,25 +14,26 @@ export default function Signup() {
   const { error, signup } = useSignup()
 
   //GETTING FORM DATA
-  const name = useRef()
-  const contact = useRef()
-  const email = useRef();
-  const password = useRef()
+  const [name, setName] = useState('')
+  const [contact, setContact] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('')
 
   //HANDLE FUNCTION
   async function handleSubmit(e){
     e.preventDefault();
+    console.log(name, contact, email, password)
     
-    signup(email.current.value, password.current.value)
+    signup(email, password, name, contact)
 
-    const collectionRef = collection(database, 'users')
-    const docRef = await addDoc(collectionRef,{email : email.current.value,
-    contact : contact.current.value,
-    name : name.current.value})
+    // const collectionRef = collection(database, 'users')
+    // const docRef = await addDoc(collectionRef,{email : email.current.value,
+    // contact : contact.current.value,
+    // name : name.current.value})
 
-    console.log(docRef.id)
+    // console.log(docRef.id)
     
-    console.log(email.current.value, password.current.value, name.current.value, contact.current.value )
+    // console.log(email.current.value, password.current.value, name.current.value, contact.current.value )
   }
 
 
@@ -45,7 +46,7 @@ export default function Signup() {
           <input 
             type="email" 
             required 
-            ref={email}
+            onChange={(e)=>{setEmail(e.target.value)}}
             />
         </label>
 
@@ -54,7 +55,7 @@ export default function Signup() {
           <input 
             type="password" 
             required 
-            ref={password}/>
+            onChange={(e)=>{setPassword(e.target.value)}}/>
         </label>
 
         <label>
@@ -62,7 +63,7 @@ export default function Signup() {
           <input 
             type="text" 
             required 
-            ref={name}/>
+            onChange={(e)=>{setName(e.target.value)}}/>
         </label>
 
         <label>
@@ -70,7 +71,7 @@ export default function Signup() {
           <input 
             type="telephone" 
             required 
-            ref={contact}/>
+            onChange={(e)=>{setContact(e.target.value)}}/>
         </label>
 
         <button type='submit' > submit </button>
