@@ -10,6 +10,7 @@ newspaper3k = "*"
 nltk = "*"
 requests = "*"
 requests-html = "*"
+newsapi-python = "*"
 
 [dev-packages]
 
