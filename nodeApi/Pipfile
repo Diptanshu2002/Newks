@@ -8,6 +8,8 @@ twint = { git = "https://github.com/twintproject/twint.git" }
 googlenews = "*"
 newspaper3k = "*"
 nltk = "*"
+requests = "*"
+requests-html = "*"
 
 [dev-packages]
 
