@@ -31,7 +31,7 @@ export default function Feed() {
             })
             setUserDetails(userOne)
         })
-    },[q])
+    },[])
     
     console.log("single-user-detals",userDetails);
 
@@ -44,11 +44,13 @@ export default function Feed() {
     useEffect(() => {
         async function fetchUser() {
             console.log(search);
-            const res = await axios(`/search?sear=${search}`);
+            const res = await axios(`/home`);
             setSearchData(res.data);
         }
         fetchUser()
-      }, [search]);
+      }, []);
+
+    // console.log(searchData)
 
 
 
@@ -82,8 +84,12 @@ export default function Feed() {
         </div>
         <div className="container d-flex">
             <div id="" style={{overflow:'scroll', height:'400px', width:'700px', marginRight: '60px'}}>
-                <Cardfeed/>
+            {searchData && searchData.map((tweet)=>(
+                    <Cardfeed key={tweet.Username} tweet = {tweet} />
+                ))}
             </div>
+
+
             <div id="" style={{overflow:'scroll', height:'400px', width: '700px'}}>
                 <Cardfeed/>
             </div>
