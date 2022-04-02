@@ -4,7 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-twint = "*"
+twint = { git = "https://github.com/twintproject/twint.git" }
+googlenews = "*"
+newspaper3k = "*"
+nltk = "*"
 
 [dev-packages]
 
