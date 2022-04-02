@@ -9,7 +9,7 @@ import {
 import { useAuthContext } from "./hooks/useAuthContext";
 
 //importing pages
-import Home from "./pages/home/Home";
+import StocksWiki from "./pages/stocksWiki/stockWiki";
 import About from "./pages/about/About"
 import Login from "./pages/login/Login"
 import Signup from "./pages/signup/Signup"
@@ -28,17 +28,17 @@ function App() {
         <Switch>
 
           <Route  exact path='/'>
-            {user && <Home/>}
-            {!user && <Redirect to='/login' />}
-          </Route>
-
-          <Route  path='/about'>
             {user && <About/>}
             {!user && <Redirect to='/login' />}
           </Route>
 
           <Route  path='/feed'>
             {user && <Feed/>}
+            {!user && <Redirect to='/login' />}
+          </Route>
+
+          <Route  path='/stockswiki'>
+            {user && <StocksWiki/>}
             {!user && <Redirect to='/login' />}
           </Route>
 

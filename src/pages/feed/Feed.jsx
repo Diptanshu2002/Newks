@@ -29,7 +29,7 @@ export default function Feed() {
             })
             setUserDetails(userOne)
         })
-    },[])
+    },[q])
     
     console.log("single-user-detals",userDetails);
 

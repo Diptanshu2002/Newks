@@ -1,14 +1,34 @@
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
+import './signup.css'
 
-
-import { collection, addDoc } from 'firebase/firestore'
-import { database } from '../../firebase/config'
-
+import img1 from '../../assets/images/avatar.svg'
+import img2 from '../../assets/images/manjump.png'
+import { Link } from 'react-router-dom';
 //hooks
 import { useSignup } from '../../hooks/useSignup'
 
 export default function Signup() {
   
+  useEffect(() => {
+    const inputs = document.querySelectorAll(".input");
+
+    function addcl(){
+      let parent = this.parentNode.parentNode;
+      parent.classList.add("focus");
+    }
+  
+    function remcl(){
+      let parent = this.parentNode.parentNode;
+      if(this.value == ""){
+        parent.classList.remove("focus");
+      }
+    }
+  
+    inputs.forEach(input => {
+      input.addEventListener("focus", addcl);
+      input.addEventListener("blur", remcl);
+    });
+  }, []);
 
   //GETTING HOOKS METHODS
   const { error, signup } = useSignup()
@@ -25,21 +45,12 @@ export default function Signup() {
     console.log(name, contact, email, password)
     
     signup(email, password, name, contact)
-
-    // const collectionRef = collection(database, 'users')
-    // const docRef = await addDoc(collectionRef,{email : email.current.value,
-    // contact : contact.current.value,
-    // name : name.current.value})
-
-    // console.log(docRef.id)
-    
-    // console.log(email.current.value, password.current.value, name.current.value, contact.current.value )
   }
 
 
   return (
-    <div>
-      <h1>Form</h1>
+    <div className='signup'>
+      {/* <h1>Form</h1>
       <form onSubmit={handleSubmit}>
         <label>
           <span>Email</span>
@@ -75,7 +86,102 @@ export default function Signup() {
         </label>
 
         <button type='submit' > submit </button>
-      </form>
+      </form> */}
+
+<img className="wave" src=''/>
+	<div className="container">
+		<div className="img">
+			<img src={img2}/>
+		</div>
+		<div className="login-content">
+			<form onSubmit={handleSubmit} >
+				  <img src={img1}/>
+				  <h2 className="title">Welcome</h2>
+
+
+          <div className="input-div one">
+
+           		   <div className="i">
+           		   		<i className="fas fa-user"></i>
+           		   </div>
+
+           		   <div className="div">
+           		   		<h5>Name</h5>
+           		   		<input 
+                      type="text" 
+                      className="input"
+                      required 
+                      onChange={(e)=>setName(e.target.value)}
+                      value = {name}
+                      />
+           		   </div>
+
+          </div>
+
+          <div className="input-div one">
+
+           		   <div className="i">
+                  <i class="fas fa-address-card"></i>
+           		   </div>
+
+           		   <div className="div">
+           		   		<h5>Email</h5>
+           		   		<input 
+                      type="text" 
+                      className="input"
+                      required 
+                      onChange={(e)=>setEmail(e.target.value)}
+                      value = {email}
+                      />
+           		   </div>
+
+          </div>
+
+          
+          <div className="input-div pass">
+
+           		   <div className="i"> 
+           		    	<i className="fas fa-phone"></i>
+           		   </div>
+
+           		   <div className="div">
+           		    	<h5>Contact</h5>
+           		    	<input 
+                      type="telephone" className="input"
+                      required 
+                      onChange={(e)=>{setContact(e.target.value)}}
+                      value = {contact}
+                      />
+            	   </div>
+
+          </div>
+
+
+          <div className="input-div pass">
+
+           		   <div className="i"> 
+           		    	<i className="fas fa-lock"></i>
+           		   </div>
+
+           		   <div className="div">
+           		    	<h5>Password</h5>
+           		    	<input 
+                      type="password" className="input"
+                      required 
+                      onChange={(e)=>{setPassword(e.target.value)}}
+                      value = {password}
+                      />
+            	   </div>
+
+          </div>
+          <Link to='/login'><a>Already Registered?...</a></Link>
+          <input 
+              type="submit" 
+              className="btn" 
+              value="Signup"/>
+    </form>
+        </div>
+    </div>
 
       {error && <p>{error}</p>}
     </div>
