@@ -8,7 +8,6 @@ export default function About () {
         <div>
         <Navbar pagename="about"/>
         <Abt/>
-        <div className='container' style={{height: '30px'}}></div>
         <Footer/>
     </div>
     );

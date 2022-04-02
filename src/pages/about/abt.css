@@ -6,9 +6,38 @@ body {
 #logo {
     position: absolute;
     width: 600px;
-    top:50%;
-    left: 30%;
-    transform: translate(-65%, -65%);
+    top:30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pres {
+    position: relative;
+    margin-top: 250px;
+    margin-left: 685px;
+    opacity: 0;
+    animation: appear 2s ease forwards 2s;
+}
+
+.newksposter {
+    margin-left: 510px;
+    margin-top: 0px;
+    opacity: 0;
+    animation: down 2s ease forwards 2.5s;
+}
+
+.btnsgrp {
+    margin-left: 700px;
+}
+
+
+
+.bn1 {
+    padding: 15px 30px 15px 30px;
+}
+
+.bn1:hover {
+    color: #242424;
 }
 
 #logo path:nth-child(2){
@@ -68,4 +97,14 @@ body {
         stroke-dashoffset: 0;
     }
     
+}
+@keyframes appear {
+    to{
+        opacity: 1;
+    }
+}
+@keyframes down {
+    to{
+        opacity: 1;
+    }
 }

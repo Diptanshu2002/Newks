@@ -19,7 +19,7 @@ export default function Navbar(props) {
       {/* <button onClick={handleClick}>logOut</button>
       <span>{name[0]}</span> */}
       <>
-      <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '/363333'}}>
+      <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: '#363333'}}>
   <div className="container-fluid">
     <div className=''>
         <svg width="44" height="30" viewBox="0 0 44 30" fill="none" xmlns="http://www.w3.org/2000/svg">

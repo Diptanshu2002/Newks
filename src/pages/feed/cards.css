@@ -1,0 +1,213 @@
+.teams
+.heading{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 4vw;
+}
+.single, .single-pair{
+    display: flex;
+    justify-content: center;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+}
+.pairs{
+    display: flex;
+    width: 45%;
+    justify-content: center;
+    gap: 1.5vw;
+}
+@media screen and (min-width: 750px) {
+    .flip-card {
+        background-color: transparent;
+        width: 20vw;
+        height: 23vw;
+        perspective: 1000px;
+    }
+    .flip-card-inner {
+        position: relative;
+        transition: transform 0.5s;
+        transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    .flip-card-back {
+        transform: rotateY(180deg);
+        background: linear-gradient(rgb(196, 134, 1), rgb(219, 99, 0));
+    }
+    .bname {
+        color: white;
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin-bottom: 1.6vw;
+    }
+    .bdesig {
+        color: white;
+        font-size: 1.2rem;
+        margin-bottom: 1vw;
+    }
+    .btagline{
+        color: white;
+        font-size: 1rem;
+        margin-bottom: 1vw;
+    }
+    .hidden{
+        display: none !important;
+    }
+}
+.hidden{
+    display: block;
+}
+.image {
+    padding: 2vw;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    width: 20vw;
+    height: 23vw;
+    border-radius: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgb(196, 134, 1), rgb(219, 99, 0));
+}
+.person{
+    width: 15vw;
+    height: auto;
+    border-radius: 1vw 1vw 0 0;
+}
+.name{
+    margin-top: 0.8vw;
+    font-size: 1.2rem;
+}
+.desig{
+    font-size: 1.1rem;
+}
+.links{
+    margin-top: 0.8vw;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+}
+.clinks1{
+    width: 1.6vw;
+    height: auto;
+}
+.clinks2{
+    width: 1.75vw;
+    height: auto;
+}
+svg{
+    fill: white;
+}
+svg:hover{
+    fill: black;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+    .flip-card-back{
+        display: none !important;
+    }
+    .image{
+        margin-left: 1vw;
+        margin-right: 1vw;
+    }
+    .heading{
+        font-size: 2.5rem;
+        margin-bottom: 5vw;
+    }
+    .name{
+        font-size: 0.6rem;
+    }
+    .desig{
+        font-size: 0.4rem;
+    }
+    .flip-card {
+        background-color: transparent;
+        width: 20vw;
+        height: 23vw;
+        perspective: 1000px;
+    }
+    .bname {
+        font-size: 1rem;
+        margin-bottom: 2vw;
+    }
+    .bdesig {
+        font-size: 0.8rem;
+        margin-bottom: 1vw;
+    }
+    .btagline{
+        font-size: 0.6rem;
+        margin-bottom: 1vw;
+    }
+    .image {
+        padding: 2vw;
+        margin-left: 0.5vw;
+        margin-right: 0.5vw;
+        width: 21vw;
+        height: 24vw;
+        border-radius: 1.5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(rgb(196, 134, 1), rgb(219, 99, 0));
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .heading{
+        font-size: 2rem;
+    }
+    .name{
+        font-size: 1.2rem;
+    }
+    .desig{
+        font-size: 1rem;
+    }
+    .single-pair {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .twin-pairs {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .pairs {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .image {
+        width: 65vw;
+        border-right: 1vw solid #fff;
+        border-bottom: 2vw solid #fff;
+    }
+    .image:hover{
+        border-radius: 2vw;
+        border-right: 1vw solid #000;
+        border-bottom: 2vw solid #000;
+    }
+    img, .person {
+        width: 40vw;
+        margin: 20px 0
+    }
+    .clinks1 {
+        width: 3.5vw;
+    }
+    .clinks2 {
+        width: 4vw;
+    }
+    .links {
+        margin: 1.2vw;
+    }
+}
