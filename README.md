@@ -16,3 +16,7 @@ Newks does something that none of the other major news providers do, by using th
 5. NLTK and vader for glorious machine learning algorithms
 6. figma for designing
 7. Coffee for survival
+![Screenshot (1154)](https://user-images.githubusercontent.com/78438978/161376025-3d9166a3-1868-444b-a701-dd46f1ece288.png)
+![Screenshot (1155)](https://user-images.githubusercontent.com/78438978/161376031-a79b1a00-9075-4825-810b-a5773c3f88de.png)
+![Screenshot (1156)](https://user-images.githubusercontent.com/78438978/161376034-f368fcb1-f792-4f50-b228-1a5a8b284300.png)
+![Screenshot (1157)](https://user-images.githubusercontent.com/78438978/161376038-3593fb06-6cdd-4174-babb-22133f16bdda.png)
