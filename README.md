@@ -9,9 +9,9 @@ We put all these valuable news together and hand it to you.
 Newks presents you all of the news you need in a very user friendly way. You don't have to scroll through tens of newsfeeds all day just to make a wise choice. No worries though, we've got you covered! We aggregate latest talks from around the world from twitter and the most relevant of news with the help of google news.
 Newks does something that none of the other major news providers do, by using the glorious power of machine learning to enlighten you so that you can also become #moneyminded .
 ## Tech stack used
-1. React js and react-bootstrap - frontend;
-2. Node js, firebase and flask - backend;
-3. Twint for twitter scraping;
+1. React js and react-bootstrap - frontend
+2. Node js, firebase and flask - backend
+3. Twint for twitter scraping
 4. Newspaper3k and googlenews for google news scraping
 5. NLTK and vader for glorious machine learning algorithms
 6. figma for designing
