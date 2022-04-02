@@ -4,7 +4,8 @@ import pandas as pd
 import nltk
 
 #TODO: change this to node input
-stock = input("Enter stock name: ")
+# stock = input("Enter stock name: ")
+stock = 'mrf'
 
 # config will allow us to access the specified url for which we are #not authorized. Sometimes we may get 403 client error while parsing #the link to download the article.
 nltk.download("punkt")
@@ -18,4 +19,8 @@ result = googlenews.result()
 df = pd.DataFrame(result)
 df = df.drop(['img',"date","datetime"],axis=1)
 js = df.to_json(orient = "records")
-print(js)
+
+for key in js:
+        value = js[key]
+        print("The key and value are ({}) = ({})".format(key, value))
+
